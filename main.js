@@ -69,6 +69,7 @@ const printBtn = document.getElementById('printInvoice');
 const customerNameInput = document.getElementById('customerName');
 const customerPhoneInput = document.getElementById('customerPhone');
 const invoiceDateInput = document.getElementById('invoiceDate');
+const servicePriceInput = document.getElementById('servicePrice');
 
 let invoice = [];
 
@@ -89,12 +90,15 @@ loadMainServices();
 mainSelect.addEventListener('change', () => {
   const selectedMain = mainSelect.value;
   subSelect.innerHTML = '<option value="">اختر الخدمة الفرعية</option>';
-  services.filter(s => s.main === selectedMain).forEach(s => {
-    const option = document.createElement('option');
-    option.value = s.id;
-    option.textContent = s.sub; // شيلنا السعر من هنا
-    subSelect.appendChild(option);
-  });
+  services
+    .filter(s => s.main === selectedMain)
+    .forEach(s => {
+      const option = document.createElement('option');
+      option.value = s.id;
+      option.textContent = s.sub;
+      servicePriceInput.value = s.price; // تضع السعر الافتراضي تلقائيًا
+      subSelect.appendChild(option);
+    });
 });
 
 // إضافة خدمة للفاتورة
@@ -103,19 +107,36 @@ addServiceBtn.addEventListener('click', () => {
   if (!serviceId) return alert('اختر الخدمة أولاً');
 
   const service = services.find(s => s.id === serviceId);
-  invoice.push(service);
+
+  // السعر من الحقل
+  const customPrice = parseFloat(servicePriceInput.value);
+  if (isNaN(customPrice)) return alert('ادخل السعر');
+
+  // منع تكرار الخدمة
+  if (invoice.some(s => s.id === serviceId)) {
+    return alert('تم إضافة هذه الخدمة مسبقًا');
+  }
+
+  invoice.push({ ...service, price: customPrice });
+
+  // مسح الحقل بعد الإضافة
+  servicePriceInput.value = '';
 
   renderInvoiceTable();
 });
 
-// دالة لإظهار الجدول
+// عرض الفاتورة وحساب الإجمالي
 function renderInvoiceTable() {
   invoiceTableBody.innerHTML = '';
+  let total = 0;
+
   invoice.forEach((service, index) => {
+    total += service.price;
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${service.main}</td>
       <td>${service.sub}</td>
+      <td>${service.price} ج</td>
       <td><button class="remove" data-index="${index}">حذف</button></td>
     `;
     invoiceTableBody.appendChild(tr);
@@ -125,18 +146,32 @@ function renderInvoiceTable() {
       renderInvoiceTable();
     });
   });
+
+  // عرض الإجمالي
+  const trTotal = document.createElement('tr');
+  trTotal.innerHTML = `
+    <td colspan="2"><strong>الإجمالي</strong></td>
+    <td colspan="2"><strong>${total} ج</strong></td>
+  `;
+  invoiceTableBody.appendChild(trTotal);
 }
 
-// الطباعة
+// طباعة الفاتورة
 printBtn.addEventListener('click', () => {
+  if (invoice.length === 0) return alert('لا توجد خدمات للطباعة');
+
   let tbodyContent = '';
+  let total = 0;
+
   invoice.forEach(service => {
     tbodyContent += `
       <tr>
         <td>${service.main}</td>
         <td>${service.sub}</td>
+        <td>${service.price} ج</td>
       </tr>
     `;
+    total += service.price;
   });
 
   const printContent = `
@@ -162,10 +197,15 @@ printBtn.addEventListener('click', () => {
         <tr>
           <th>الخدمة الأساسية</th>
           <th>الخدمة الفرعية</th>
+          <th>السعر</th>
         </tr>
       </thead>
       <tbody>
         ${tbodyContent}
+        <tr>
+          <td colspan="2"><strong>الإجمالي</strong></td>
+          <td><strong>${total} ج</strong></td>
+        </tr>
       </tbody>
     </table>
     <p>شكراً لزيارتكم Rose Garden Salon</p>
