@@ -42,41 +42,44 @@
                     </select>
                     <select id="subServiceSelect">
                         <option value="">اختر الخدمة الفرعية</option>
-                    </select>
-                    <button type="button" id="addService">إضافة خدمة</button>
-                </div>
-            </form>
+                        <input type="number" id="servicePrice" placeholder="السعر" min="0">
 
-            <table id="invoiceTable">
+                </div>
+                </select>
+                <button type="button" id="addService">إضافة خدمة</button>
+        </div>
+        </form>
+
+        <table id="invoiceTable">
+            <thead>
+                <tr>
+                    <th>الخدمة الرئيسية</th>
+                    <th>الخدمة الفرعية</th>
+                    <th>حذف</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button id="printInvoice">طباعة الفاتورة</button>
+
+        <div id="invoicePrint" style="display:none;">
+            <h2>Rose Garden Salon</h2>
+            <p>Customer Name: <span id="printCustomerName"></span></p>
+            <p>رقم العميل: <span id="printCustomerPhone"></span></p>
+            <p>Date: <span id="printInvoiceDate"></span></p>
+
+            <table>
                 <thead>
                     <tr>
-                        <th>الخدمة الرئيسية</th>
+                        <th>Main Service</th>
                         <th>الخدمة الفرعية</th>
-                        <th>حذف</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="printInvoiceBody"></tbody>
             </table>
-
-            <button id="printInvoice">طباعة الفاتورة</button>
-
-            <div id="invoicePrint" style="display:none;">
-                <h2>Rose Garden Salon</h2>
-                <p>Customer Name: <span id="printCustomerName"></span></p>
-                <p>رقم العميل: <span id="printCustomerPhone"></span></p>
-                <p>Date: <span id="printInvoiceDate"></span></p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Main Service</th>
-                            <th>الخدمة الفرعية</th>
-                        </tr>
-                    </thead>
-                    <tbody id="printInvoiceBody"></tbody>
-                </table>
-            </div>
         </div>
+    </div>
     </div>
 
     <script src="main.js"></script>
