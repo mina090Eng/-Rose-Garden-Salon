@@ -1,0 +1,170 @@
+/* Reset بعض الخصائص */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* الجسم العام */
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #FFDEE9, #FFB6C1);
+    padding: 30px 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #FF3B6B;
+    transform: scale(1.05);
+}
+
+/* المحتوى الأساسي */
+.main-content {
+    flex: 1;
+    padding: 40px 60px;
+    overflow-x: auto;
+}
+
+/* عنوان الصفحة */
+.main-content h2 {
+    font-size: 32px;
+    color: #FF3B6B;
+    margin-bottom: 30px;
+}
+
+/* الفورم */
+#supplierForm {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+#supplierForm input,
+#supplierForm button {
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#supplierForm input {
+    flex: 1 1 180px;
+}
+
+#supplierForm input:focus {
+    border-color: #FF3B6B;
+    box-shadow: 0 0 8px rgba(255, 59, 107, 0.3);
+    outline: none;
+}
+
+#supplierForm button {
+    background: #FF3B6B;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#supplierForm button:hover {
+    background: #FF1A4B;
+    transform: scale(1.05);
+}
+
+/* الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background: #FFDEE9;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+}
+
+tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 15px;
+    color: #555;
+}
+
+tbody tr:hover {
+    background: #FFF0F5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 20px 10px;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    #supplierForm {
+        flex-direction: column;
+    }
+
+    #supplierForm input,
+    #supplierForm button {
+        width: 100%;
+    }
+}

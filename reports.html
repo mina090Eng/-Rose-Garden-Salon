@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="style6.css">
+    <script defer src="reports.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>💇‍♂️ Salon System</h3>
+        <ul>
+            <li><a href="suppliers.html">📦 الموردين</a></li>
+            <li><a href="inventory.html">🏷️ المخزن</a></li>
+            <li><a href="sales.html">💰 المبيعات</a></li>
+            <li><a href="customers.html">👥 العملاء & Refill</a></li>
+            <li><a href="employees.html">🧑‍🔧 العمال</a></li>
+            <li><a href="reports.html">📊 التقارير</a></li>
+            <li><a href="index.html">🚪 تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- هنا المحتوى الأساسي لكل صفحة -->
+
+        <h2>التقارير</h2>
+        <form id="reportForm">
+            <input type="text" id="service" placeholder="اسم الخدمة">
+            <input type="month" id="month">
+            <button type="submit">بحث</button>
+        </form>
+        <div id="reportResult"></div>
+</body>
+</div>
+
+
+</html>

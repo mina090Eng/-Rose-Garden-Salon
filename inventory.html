@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style3.css">
+    <script defer src="inventory.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>💇‍♂️ Salon System</h3>
+        <ul>
+            <li><a href="suppliers.html">📦 الموردين</a></li>
+            <li><a href="inventory.html">🏷️ المخزن</a></li>
+            <li><a href="sales.html">💰 المبيعات</a></li>
+            <li><a href="customers.html">👥 العملاء & Refill</a></li>
+            <li><a href="employees.html">🧑‍🔧 العمال</a></li>
+            <li><a href="reports.html">📊 التقارير</a></li>
+            <li><a href="index.html">🚪 تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- هنا المحتوى الأساسي لكل صفحة -->
+
+        <h2>المخزن</h2>
+        <form id="inventoryForm">
+            <input type="text" id="product" placeholder="اسم الصنف" required>
+            <input type="number" id="quantity" placeholder="الكمية" required>
+            <button type="submit">إضافة صنف</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>الصنف</th>
+                    <th>الكمية</th>
+                    <th>المتبقي</th>
+                    <th>التحكم</th> <!-- العمود الجديد -->
+                </tr>
+            </thead>
+            <tbody id="inventoryTable"></tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet" href="style4.css">
+    <script defer src="customers.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h3>💇‍♂️ Salon System</h3>
+        <ul>
+            <li><a href="suppliers.html">📦 الموردين</a></li>
+            <li><a href="inventory.html">🏷️ المخزن</a></li>
+            <li><a href="sales.html">💰 المبيعات</a></li>
+            <li><a href="customers.html">👥 العملاء & Refill</a></li>
+            <li><a href="employees.html">🧑‍🔧 العمال</a></li>
+            <li><a href="reports.html">📊 التقارير</a></li>
+            <li><a href="index.html">🚪 تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- هنا المحتوى الأساسي لكل صفحة -->
+
+        <form id="customerForm">
+            <input type="text" id="name" placeholder="اسم العميل" required>
+            <input type="tel" id="phone" placeholder="رقم التليفون" required>
+            <input type="text" id="service" placeholder="الخدمة" required>
+            <input type="date" id="refill" placeholder="موعد Refill">
+            <button type="submit">إضافة عميل</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>الاسم</th>
+                    <th>رقم التليفون</th>
+                    <th>الخدمة</th>
+                    <th>موعد Refill</th>
+                </tr>
+            </thead>
+            <tbody id="customerTable"></tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

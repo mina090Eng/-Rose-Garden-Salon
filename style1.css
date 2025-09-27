@@ -1,0 +1,103 @@
+/* Reset بعض الخصائص الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* خلفية الصفحة */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FFDEE9, #FFB6C1);
+    /* ألوان أنثوية */
+}
+
+/* صندوق تسجيل الدخول الكبير */
+.login-container {
+    background-color: #ffffff;
+    padding: 60px 50px;
+    /* كبير */
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    /* أكبر */
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* عنوان الصفحة كبير وواضح */
+.login-container h2 {
+    margin-bottom: 40px;
+    color: #FF3B6B;
+    font-size: 36px;
+    /* كبير */
+    font-weight: bold;
+}
+
+/* الفورم */
+#loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+/* الليبل */
+#loginForm label {
+    text-align: right;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 18px;
+}
+
+/* الانبوت */
+#loginForm input {
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 18px;
+    /* أكبر */
+    transition: 0.3s;
+}
+
+/* تأثير عند التركيز على الانبوت */
+#loginForm input:focus {
+    border-color: #FF6B81;
+    box-shadow: 0 0 8px rgba(255, 107, 129, 0.5);
+    outline: none;
+}
+
+/* زر الدخول */
+#loginForm button {
+    padding: 15px;
+    background: #FF3B6B;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 22px;
+    /* كبير وواضح */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* تأثير عند مرور الماوس على الزر */
+#loginForm button:hover {
+    background: #FF1A4B;
+    transform: scale(1.05);
+}
+
+/* حركة دخول لطيفة */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

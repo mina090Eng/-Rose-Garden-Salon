@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Garden Salon - Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>💇‍♂️ Rose Garden Salon</h3>
+        <ul>
+            <li><a href="suppliers.html">📦 الموردين</a></li>
+            <li><a href="inventory.html">🏷️ المخزن</a></li>
+            <li><a href="sales.html" class="active">💰 المبيعات</a></li>
+            <li><a href="customers.html">👥 العملاء & Refill</a></li>
+            <li><a href="employees.html">🧑‍🔧 العمال</a></li>
+            <li><a href="reports.html">📊 التقارير</a></li>
+            <li><a href="index.html">🚪 تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Rose Garden Salon</h1>
+
+            <form id="salesForm">
+                <div class="customer-info">
+                    <input type="text" id="customerName" placeholder="اسم العميل" required>
+                    <input type="text" id="customerPhone" placeholder="رقم التليفون" required>
+                    <input type="date" id="invoiceDate" required>
+                </div>
+
+                <div class="services-selection">
+                    <select id="mainServiceSelect">
+                        <option value="">اختر الخدمة الرئيسية</option>
+                        <option value="Haircut">قص شعر</option>
+                        <option value="Color">تلوين</option>
+                        <option value="Manicure">مانيكير</option>
+                    </select>
+                    <select id="subServiceSelect">
+                        <option value="">اختر الخدمة الفرعية</option>
+                    </select>
+                    <button type="button" id="addService">إضافة خدمة</button>
+                </div>
+            </form>
+
+            <table id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>الخدمة الرئيسية</th>
+                        <th>الخدمة الفرعية</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <button id="printInvoice">طباعة الفاتورة</button>
+
+            <div id="invoicePrint" style="display:none;">
+                <h2>Rose Garden Salon</h2>
+                <p>Customer Name: <span id="printCustomerName"></span></p>
+                <p>رقم العميل: <span id="printCustomerPhone"></span></p>
+                <p>Date: <span id="printInvoiceDate"></span></p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Main Service</th>
+                            <th>الخدمة الفرعية</th>
+                        </tr>
+                    </thead>
+                    <tbody id="printInvoiceBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppliers</title>
+    <link rel="stylesheet" href="style2.css">
+    <script defer src="suppliers.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>💇‍♂️ Rose Garden Salon</h3>
+        <ul>
+            <li><a href="suppliers.html">📦 الموردين</a></li>
+            <li><a href="inventory.html">🏷️ المخزن</a></li>
+            <li><a href="sales.html">💰 المبيعات</a></li>
+            <li><a href="customers.html">👥 العملاء & Refill</a></li>
+            <li><a href="employees.html">🧑‍🔧 العمال</a></li>
+            <li><a href="reports.html">📊 التقارير</a></li>
+            <li><a href="index.html">🚪 تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- هنا المحتوى الأساسي لكل صفحة -->
+
+        <h2>الموردين</h2>
+        <form id="supplierForm">
+            <input type="text" id="company" placeholder="اسم الشركة" required>
+            <input type="text" id="invoice" placeholder="اسم الفاتورة" required>
+            <input type="date" id="date" required>
+            <input type="number" id="total" placeholder="إجمالي الفاتورة" required>
+            <input type="number" id="paid" placeholder="المدفوع" required>
+            <button type="submit">إضافة فاتورة</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>اسم الشركة</th>
+                    <th>الفاتورة</th>
+                    <th>التاريخ</th>
+                    <th>الإجمالي</th>
+                    <th>المدفوع</th>
+                    <th>الباقي</th>
+                </tr>
+            </thead>
+            <tbody id="supplierTable"></tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
