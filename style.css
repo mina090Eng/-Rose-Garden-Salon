@@ -15,7 +15,7 @@ body {
 /* الشريط الجانبي */
 .sidebar {
     width: 220px;
-    background: linear-gradient(180deg, #FFDEE9, #FFB6C1);
+    background: linear-gradient(180deg, #19196b, #0f1141);
     padding: 30px 20px;
     color: #fff;
     display: flex;
@@ -223,4 +223,5 @@ tbody tr:hover {
     #salesForm {
         grid-template-columns: 1fr;
     }
+
 }
